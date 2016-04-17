@@ -27,7 +27,7 @@
             resultDic[name] = propertyValue;
         }else{
             
-            resultDic[name] = @"空的";
+            resultDic[name] = @"--";
         }
     }
     

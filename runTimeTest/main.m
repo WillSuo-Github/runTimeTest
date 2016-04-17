@@ -28,7 +28,7 @@ int main(int argc, char * argv[]) {
         p.name = @"李彦科";
         [p setValue:@"lyk" forKey:@"_occ"];
         
-        NSLog(@"%@",[p allMethods]);
+        NSLog(@"%@",[p allProperties]);
         
         
         
