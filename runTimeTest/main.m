@@ -23,19 +23,18 @@ int main(int argc, char * argv[]) {
         
         
         
-        Person *p = [[Person alloc] init];
-        p.age = 18;
-        p.name = @"李彦科";
-        [p setValue:@"lyk" forKey:@"_occ"];
+//        Person *p = [[Person alloc] init];
+//        p.age = 18;
+//        p.name = @"李彦科";
         
-//        NSLog(@"%@",[p allProperties]);
-        id data = [NSKeyedArchiver archivedDataWithRootObject:p];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"ppp"];
-        
-        id objc = [[NSUserDefaults standardUserDefaults] objectForKey:@"ppp"];
-        id object = [NSKeyedUnarchiver unarchiveObjectWithData:objc];
-        NSLog(@"%@",object);
-        
+        NSDictionary *dict = @{
+                               @"name" : @"苍井空",
+                               @"age"  : @18,
+                               };
+
+        Person *p = [[Person alloc] initWithDic:dict];
+        NSLog(@"%@--%@",p.name,p.age);
+        NSLog(@"%@",p.keyValues);
         
         
         

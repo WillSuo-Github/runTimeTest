@@ -8,18 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject<NSCoding>{
-    
-    NSString *_occ;
-    NSString *_nat;
-}
+@interface Person : NSObject<NSCoding>
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) NSInteger age;
+@property (nonatomic, strong) NSNumber *age;
 
 - (NSDictionary *)allProperties;
 - (NSDictionary *)allIvars;
 - (NSDictionary *)allMethods;
-
-
-
+- (instancetype)initWithDic:(NSDictionary *)dict;
+- (NSDictionary *)keyValues;
 @end

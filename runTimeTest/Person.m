@@ -112,4 +112,51 @@
     
 }
 
+
+- (instancetype)initWithDic:(NSDictionary *)dict{
+    
+    if (self = [super init]) {
+        
+        for (NSString *key in [dict allKeys]) {
+            id value = [dict objectForKey:key];
+            SEL setSel = [self getPropertySetSel:key];
+            ((void (*)(id, SEL, id))objc_msgSend)(self, setSel, value);
+        }
+    }
+    
+    return self;
+    
+}
+
+- (NSDictionary *)keyValues{
+    
+    unsigned int count = 0;
+    objc_property_t *p = class_copyPropertyList([self class], &count);
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    for (int i = 0; i < count; ++i) {
+        const void *name = property_getName(p[i]);
+        NSString *pName = [NSString stringWithUTF8String:name];
+        SEL getSel = [self getPropertyGetSel:pName];
+        id value = ((id(*)(id, SEL))objc_msgSend)(self, getSel);
+        dict[pName] = value;
+    }
+    
+    free(p);
+    return dict;
+}
+
+
+- (SEL)getPropertyGetSel:(NSString *)key{
+    
+    SEL getSel = NSSelectorFromString(key);
+    
+    return getSel;
+}
+
+- (SEL)getPropertySetSel:(NSString *)key{
+    
+    SEL setSel = NSSelectorFromString([NSString stringWithFormat:@"set%@:",key.capitalizedString]);
+    return setSel;
+}
+
 @end
