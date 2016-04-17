@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSNumber *age;
 
 - (void)sing;
+- (void)dance;
 @end

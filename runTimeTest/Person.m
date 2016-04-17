@@ -15,15 +15,32 @@
 
 + (BOOL)resolveInstanceMethod:(SEL)sel{
     
-    if ([NSStringFromSelector(sel) isEqualToString:@"sing"]) {
-        class_addMethod(self, sel, (IMP)singFunction, "v@:");
+    return NO;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+    
+    return nil;
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
+    
+    if ([NSStringFromSelector(aSelector) isEqualToString:@"sing"]) {
+        return [NSMethodSignature signatureWithObjCTypes:"v@:"];
     }
     
-    return [super resolveInstanceMethod:sel];
+    return [super methodSignatureForSelector:aSelector];
 }
 
-void singFunction(id self, SEL cmd){
-    NSLog(@"%@sing",[self valueForKey:@"name"]);
+- (void)forwardInvocation:(NSInvocation *)anInvocation{
+    
+    [anInvocation setSelector:@selector(dance)];
+    [anInvocation invokeWithTarget:self];
+    
 }
 
+- (void)dance{
+    
+    NSLog(@"跳舞了");
+}
 @end
