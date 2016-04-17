@@ -24,16 +24,16 @@ int main(int argc, char * argv[]) {
         
         
         
-//        Person *p = [[Person alloc] init];
-//        p.age = @18;
-//        p.name = @"李彦科";
-//        
-//        [p sing];
-
-        Dog *d = [[Dog alloc] init];
-        d.name = @"小狗";
+        Person *p = [[Person alloc] init];
+        p.age = @18;
+        p.name = @"李彦科";
         
-        ((void(*)(id, SEL))objc_msgSend)(d, @selector(sing));
+        [p sing];
+//
+//        Dog *d = [[Dog alloc] init];
+//        d.name = @"小狗";
+//        
+//        ((void(*)(id, SEL))objc_msgSend)(d, @selector(sing));
         
         
         
