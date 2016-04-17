@@ -28,7 +28,13 @@ int main(int argc, char * argv[]) {
         p.name = @"李彦科";
         [p setValue:@"lyk" forKey:@"_occ"];
         
-        NSLog(@"%@",[p allProperties]);
+//        NSLog(@"%@",[p allProperties]);
+        id data = [NSKeyedArchiver archivedDataWithRootObject:p];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"ppp"];
+        
+        id objc = [[NSUserDefaults standardUserDefaults] objectForKey:@"ppp"];
+        id object = [NSKeyedUnarchiver unarchiveObjectWithData:objc];
+        NSLog(@"%@",object);
         
         
         

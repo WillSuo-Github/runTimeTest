@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject{
+@interface Person : NSObject<NSCoding>{
     
     NSString *_occ;
     NSString *_nat;

@@ -79,4 +79,37 @@
     return dict;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    
+    unsigned int count = 0;
+    Ivar *ivars = class_copyIvarList([self class], &count);
+    for (int i = 0; i < count; ++i) {
+        const char *name = ivar_getName(ivars[i]);
+        NSString *key = [NSString stringWithUTF8String:name];
+        id value = [self valueForKey:key];
+        [aCoder encodeObject:value forKey:key];
+    }
+    free(ivars);
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    
+    if (self = [super init]) {
+        
+        unsigned int count = 0;
+        Ivar *ivars = class_copyIvarList([self class], &count);
+        for (int i = 0; i < count; ++i) {
+            const char *name = ivar_getName(ivars[i]);
+            NSString *key = [NSString stringWithUTF8String:name];
+            //        id value = [self valueForKey:key];
+            id value = [aDecoder decodeObjectForKey:key];
+            [self setValue:value forKey:key];
+        }
+        
+        free(ivars);
+    }
+    return self;
+    
+}
+
 @end
