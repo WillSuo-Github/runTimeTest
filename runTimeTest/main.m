@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import "Person.h"
+#import "Dog.h"
 
 void sayFunction (id self,SEL _cmd,id some){
     
@@ -24,19 +25,15 @@ int main(int argc, char * argv[]) {
         
         
 //        Person *p = [[Person alloc] init];
-//        p.age = 18;
+//        p.age = @18;
 //        p.name = @"李彦科";
-        
-        NSDictionary *dict = @{
-                               @"name" : @"苍井空",
-                               @"age"  : @18,
-                               };
+//        
+//        [p sing];
 
-        Person *p = [[Person alloc] initWithDic:dict];
-        NSLog(@"%@--%@",p.name,p.age);
-        NSLog(@"%@",p.keyValues);
+        Dog *d = [[Dog alloc] init];
+        d.name = @"小狗";
         
-        
+        ((void(*)(id, SEL))objc_msgSend)(d, @selector(sing));
         
         
         
