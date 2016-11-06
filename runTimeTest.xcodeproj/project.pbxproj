@@ -13,6 +13,8 @@
 		04EF0A7C1CC22EDA002F4C9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EF0A7A1CC22EDA002F4C9E /* Main.storyboard */; };
 		04EF0A7E1CC22EDA002F4C9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EF0A7D1CC22EDA002F4C9E /* Assets.xcassets */; };
 		04EF0A811CC22EDA002F4C9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04EF0A7F1CC22EDA002F4C9E /* LaunchScreen.storyboard */; };
+		7D5F824A1DCF90D300A49525 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F82491DCF90D300A49525 /* OneViewController.m */; };
+		7D5F82501DCF9B3E00A49525 /* UIViewController+CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5F824F1DCF9B3E00A49525 /* UIViewController+CountViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		04EF0A7D1CC22EDA002F4C9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04EF0A801CC22EDA002F4C9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04EF0A821CC22EDA002F4C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D5F82481DCF90D300A49525 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
+		7D5F82491DCF90D300A49525 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
+		7D5F824E1DCF9B3E00A49525 /* UIViewController+CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CountViewController.h"; sourceTree = "<group>"; };
+		7D5F824F1DCF9B3E00A49525 /* UIViewController+CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CountViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,8 @@
 		04EF0A651CC22EDA002F4C9E = {
 			isa = PBXGroup;
 			children = (
+				7D5F824E1DCF9B3E00A49525 /* UIViewController+CountViewController.h */,
+				7D5F824F1DCF9B3E00A49525 /* UIViewController+CountViewController.m */,
 				04EF0A701CC22EDA002F4C9E /* runTimeTest */,
 				04EF0A6F1CC22EDA002F4C9E /* Products */,
 			);
@@ -67,6 +75,8 @@
 				04EF0A7F1CC22EDA002F4C9E /* LaunchScreen.storyboard */,
 				04EF0A821CC22EDA002F4C9E /* Info.plist */,
 				04EF0A711CC22EDA002F4C9E /* Supporting Files */,
+				7D5F82481DCF90D300A49525 /* OneViewController.h */,
+				7D5F82491DCF90D300A49525 /* OneViewController.m */,
 			);
 			path = runTimeTest;
 			sourceTree = "<group>";
@@ -151,7 +161,9 @@
 			files = (
 				04EF0A791CC22EDA002F4C9E /* ViewController.m in Sources */,
 				04EF0A761CC22EDA002F4C9E /* AppDelegate.m in Sources */,
+				7D5F82501DCF9B3E00A49525 /* UIViewController+CountViewController.m in Sources */,
 				04EF0A731CC22EDA002F4C9E /* main.m in Sources */,
+				7D5F824A1DCF90D300A49525 /* OneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,7 @@
 				04EF0A871CC22EDA002F4C9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
